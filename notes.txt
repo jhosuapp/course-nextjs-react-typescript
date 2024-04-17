@@ -1,0 +1,4 @@
+Diferencias de tipado:
+
+Explícito: Lo ves en el código
+Implícito: Lo sabes luego de ver o leer el código

@@ -2,3 +2,35 @@ Diferencias de tipado:
 
 Explícito: Lo ves en el código
 Implícito: Lo sabes luego de ver o leer el código
+
+
+//-----------------------------
+//TIPADO DE DATOS CON REACT Y TS
+//-----------------------------
+
+//Implícito
+const sum = (a, b)=>{
+    return a + b;
+}
+//Explícito
+const sum = (a:number, b:number):number=>{
+    return a + b;
+}
+//Import de los tipos
+import type { FunctionComponent, FC } from "react"
+//Con tipos en react
+const RandomFox : FunctionComponent = ()=>{
+    return (
+        <h1>Hola</h1>
+    )
+}
+//Con abreviación
+const RandomFox : FC = ()=>{
+    return (
+        <h1>Hola</h1>
+    )
+}
+
+//-----------------------------
+//FIN TIPADO DE DATOS CON REACT Y TS
+//-----------------------------

@@ -34,3 +34,29 @@ const RandomFox : FC = ()=>{
 //-----------------------------
 //FIN TIPADO DE DATOS CON REACT Y TS
 //-----------------------------
+
+
+
+//-----------------------------
+//TIPADO DE HOOKS
+//-----------------------------
+
+//Se debe indicar el tipo de dato que se recive en nuestro estado, en este caso es un array de números
+const [ test, setTest ] = useState<number[]>([1,2,3,4]);
+
+//También debemos añadir "use client" en next.js para que funcionen los hooks de cara al cliente
+
+
+
+//-----------------------------
+//ESTANDARES
+//-----------------------------
+
+//Al definir un tipo con typescript, este debe comenzar con letra mayúscula, en este caso estamos definiendo un tipo ImageItem que tiene un objeto el cual tiene los parametros "id" y "url"
+
+type ImageItem = { id:string, url:string }
+
+const [ image, setImage ] = useState<Array<ImageItem>>([
+    {id:"1", url: "https://image.com"}
+    {id:"1", url: "https://image.com"}
+]);

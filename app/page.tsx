@@ -7,20 +7,21 @@ import { RandomFox } from "./components/RandomFox";
 const randomNumber = ():number => Math.floor(Math.random() * 123) + 1;
 
 export default function Home() {
-
-    const [ images, setImages ] = useState<string[]>([
-        `https://randomfox.ca/images/${randomNumber()}.jpg`,
-        `https://randomfox.ca/images/${randomNumber()}.jpg`,
-        `https://randomfox.ca/images/${randomNumber()}.jpg`,
-        `https://randomfox.ca/images/${randomNumber()}.jpg`,
-        `https://randomfox.ca/images/${randomNumber()}.jpg`
+    //Custom type
+    type imageItem = { id:string, url:string };
+    //State
+    const [images, setImages] = useState<Array<imageItem>>([
+        {"id": "1", "url": `https://randomfox.ca/images/${randomNumber()}.jpg`,},
+        {"id": "2", "url": `https://randomfox.ca/images/${randomNumber()}.jpg`,},
+        {"id": "3", "url": `https://randomfox.ca/images/${randomNumber()}.jpg`,},
+        {"id": "4", "url": `https://randomfox.ca/images/${randomNumber()}.jpg`,}
     ]);
 
     return (
         <>
-            {images.map((image:string, index:number)=>(
-                <div key={ index }>
-                    {<RandomFox image={ image } alt={ 'Zorro' } />}
+            {images.map(({ id, url })=>(
+                <div key={ id }>
+                    {<RandomFox image={ url } alt={ 'Zorro' } />} 
                 </div>
             ))}
         </>

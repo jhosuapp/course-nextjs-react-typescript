@@ -1,12 +1,16 @@
-//Dinamic
-const randomNumber = ():number => Math.floor(Math.random() * 123) + 1;
+interface Props {
+    image: string;
+    alt: string;
+}
+
+// type Props {
+//     image: string;
+// }
 
 //Type explicit
-const RandomFox = ():JSX.Element =>{
-    const source = `https://randomfox.ca/images/${randomNumber()}.jpg`;
-
+const RandomFox = ( { image, alt } : Props ):JSX.Element =>{
     return (
-        <img width={'100%'} src={ source } />
+        <img width={'100%'} src={ image } alt={ alt } />
     )
 }
 

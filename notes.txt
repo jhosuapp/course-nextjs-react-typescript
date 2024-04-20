@@ -47,6 +47,23 @@ const [ test, setTest ] = useState<number[]>([1,2,3,4]);
 //También debemos añadir "use client" en next.js para que funcionen los hooks de cara al cliente
 
 
+//-----------------------------
+//TIPOS CORRECTOS PARA CADA ELEMENTO
+//-----------------------------
+A medida que desarrollamos aplicaciones en TypeScript, una de las tareas más importantes es asegurarnos de que estamos trabajando con tipos de datos precisos y seguros. Esto es particularmente importante cuando trabajamos con eventos y callbacks de escuchadores en React, ya que necesitamos especificar el tipo de evento que se está produciendo.
+
+Afortunadamente, muchas librerías y frameworks modernos ya proporcionan tipos de datos precisos y completos para eventos. Esto significa que podemos confiar en que las funciones que estamos utilizando son seguras y precisas.
+
+Para asegurarnos de que estamos utilizando los tipos de datos correctos para eventos, necesitamos asegurarnos de que nuestra configuración de TypeScript incluya las librerías que estamos utilizando. Podemos hacer esto especificando las librerías que estamos usando en nuestro archivo tsconfig.json.
+
+Una vez que hemos configurado nuestro proyecto correctamente, podemos inspeccionar los tipos de eventos utilizando el editor de código que estemos utilizando. Por ejemplo, si queremos saber el tipo de datos que se produce en un evento onClick de un botón, podemos simplemente hacer hover sobre el método onClick y buscar su definición.
+
+El editor de código nos mostrará la definición del método onClick, junto con información sobre su tipo de datos:
+
+En este caso, el tipo de datos del evento es React.MouseEvent<HTMLButtonElement>. Esto significa que podemos utilizar este tipo de datos para especificar el tipo de datos que se produce en nuestro callback de escuchador de eventos.
+
+Por ejemplo, podemos definir una función addNewFox que se llama cuando se hace clic en un botón. Para especificar el tipo de datos del evento que se produce, podemos incluir React.MouseEvent<HTMLButtonElement> como argumento de nuestra función:
+
 
 //-----------------------------
 //ESTANDARES
@@ -60,3 +77,6 @@ const [ image, setImage ] = useState<Array<ImageItem>>([
     {id:"1", url: "https://image.com"}
     {id:"1", url: "https://image.com"}
 ]);
+
+
+

@@ -3,7 +3,7 @@
 import type { MouseEventHandler } from "react";
 //Components
 import { useState } from "react";
-import { RandomFox } from "./components/RandomFox";
+import { LazyImage } from "./components/LazyImage";
 //Dinamic
 const randomNumber = ():number => Math.floor(Math.random() * 123) + 1;
 
@@ -30,7 +30,13 @@ export default function Home() {
             <button onClick={ handleClick }>Add fox</button>
             {images.map(({ id, url })=>(
                 <div key={ id }>
-                    {<RandomFox image={ url } alt={ 'Zorro' } />} 
+                    {<LazyImage 
+                        src={ url } 
+                        className="bg-gray-300" 
+                        width={'300px'} 
+                        height={'auto'}
+                        onClick={ ()=>{ console.log('click !!') } }  
+                    />} 
                 </div>
             ))}
         </>

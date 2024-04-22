@@ -68,6 +68,10 @@ Por ejemplo, podemos definir una función addNewFox que se llama cuando se hace 
 //-----------------------------
 
 
+//-------------------------------------------------------------------------------
+//TIPOS CORRECTOS PARA ELEMENTOS DEL DOM, HEREDEAR METODOS Y ATRIBUTOS EN UN TIPO
+//-----------------------------------------------------------------------------
+
 1. Primero debemos pararnos con el mouse sobre nuestro elemento html, luego al hacer hover nos mostrará el tipo compatible con nuestro elemento HTML, lo copiamos y lo definimos
 
 
@@ -117,3 +121,21 @@ const [ image, setImage ] = useState<Array<ImageItem>>([
     {id:"1", url: "https://image.com"}
     {id:"1", url: "https://image.com"}
 ]);
+
+//-----------------------------
+//ESTANDARES
+//-----------------------------
+
+
+
+//--------------------------------
+//Global types
+//--------------------------------
+
+Para crear un tipo global, se debe crear un archivo llamado "app.d.ts" y aquí debemos añadir nuestros tipos custom
+
+Adicional, es una buena practica que estos tipos custom comiencen por "T" o por "I"
+
+//--------------------------------
+//Global types
+//--------------------------------

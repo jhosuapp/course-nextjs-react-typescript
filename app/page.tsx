@@ -8,10 +8,8 @@ import { LazyImage } from "./components/LazyImage";
 const randomNumber = ():number => Math.floor(Math.random() * 123) + 1;
 
 export default function Home() {
-    //Custom type
-    type imageItem = { id:number, url:string };
     //State
-    const [images, setImages] = useState<Array<imageItem>>([]);
+    const [images, setImages] = useState<Array<IFoxImage>>([]);
     const [counter, setCounter] = useState<number>(0);
 
     const handleClick:MouseEventHandler<HTMLButtonElement> = (event):void=>{

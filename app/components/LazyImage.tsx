@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react"; 
 import type { ImgHTMLAttributes } from "react";
 //Props
-type CustomProps = { src: string }
+type CustomProps = { 
+    src: string, 
+    onLazyLoad?: (node:HTMLImageElement) => void
+}
 type NativeProps = ImgHTMLAttributes<HTMLImageElement>;
 type Props = CustomProps & NativeProps;
 
 //Type explicit
-const LazyImage = ( { src, ...imgProps } : Props ):JSX.Element =>{
+const LazyImage = ( { src, onLazyLoad, ...imgProps } : Props ):JSX.Element =>{
     //State
     const [currentSrc, setCurrentSrc] = useState<string>(
         'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjMyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiLz4='
@@ -19,6 +22,7 @@ const LazyImage = ( { src, ...imgProps } : Props ):JSX.Element =>{
             entries.forEach((entry)=>{
                 if(entry.isIntersecting){
                     setCurrentSrc(src);
+                    onLazyLoad && onLazyLoad(entry.target as HTMLImageElement)
                 }
             })
         });

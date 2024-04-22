@@ -25,6 +25,11 @@ export default function Home() {
         setImages([...images, generateImage ]);
     }
 
+    //This functions ejecute when imagen load
+    const onLazyLoadImage = ()=>{
+        console.log('Imagen cargada correctamente');
+    }
+
     return (
         <>
             <button onClick={ handleClick }>Add fox</button>
@@ -36,6 +41,7 @@ export default function Home() {
                         width={'300px'} 
                         height={'auto'}
                         onClick={ ()=>{ console.log('click !!') } }  
+                        onLazyLoad={ onLazyLoadImage }
                     />} 
                 </div>
             ))}

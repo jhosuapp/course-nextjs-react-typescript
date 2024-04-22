@@ -47,9 +47,9 @@ const [ test, setTest ] = useState<number[]>([1,2,3,4]);
 //También debemos añadir "use client" en next.js para que funcionen los hooks de cara al cliente
 
 
-//-----------------------------
-//TIPOS CORRECTOS PARA CADA ELEMENTO
-//-----------------------------
+//----------------------------------------------------------------------
+//TIPOS CORRECTOS PARA EVENTOS, HEREDEAR METODOS Y ATRIBUTO EN UN TIPO
+//----------------------------------------------------------------------
 A medida que desarrollamos aplicaciones en TypeScript, una de las tareas más importantes es asegurarnos de que estamos trabajando con tipos de datos precisos y seguros. Esto es particularmente importante cuando trabajamos con eventos y callbacks de escuchadores en React, ya que necesitamos especificar el tipo de evento que se está produciendo.
 
 Afortunadamente, muchas librerías y frameworks modernos ya proporcionan tipos de datos precisos y completos para eventos. Esto significa que podemos confiar en que las funciones que estamos utilizando son seguras y precisas.
@@ -63,6 +63,46 @@ El editor de código nos mostrará la definición del método onClick, junto con
 En este caso, el tipo de datos del evento es React.MouseEvent<HTMLButtonElement>. Esto significa que podemos utilizar este tipo de datos para especificar el tipo de datos que se produce en nuestro callback de escuchador de eventos.
 
 Por ejemplo, podemos definir una función addNewFox que se llama cuando se hace clic en un botón. Para especificar el tipo de datos del evento que se produce, podemos incluir React.MouseEvent<HTMLButtonElement> como argumento de nuestra función:
+//-----------------------------
+//FIN TIPOS CORRECTOS PARA EVENTOS
+//-----------------------------
+
+
+1. Primero debemos pararnos con el mouse sobre nuestro elemento html, luego al hacer hover nos mostrará el tipo compatible con nuestro elemento HTML, lo copiamos y lo definimos
+
+
+type nativeTypes = HTMLAttributes<HTMLParagraphElement> // si vamos a la definción de "HTMLAttributes", veremos que viene directamente de react, por lo cual deberiamos importarlo de la siguiente manera:
+
+import type { HTMLAttributes } from "react";
+
+const component = ()=>{
+    return ( 
+        <p>Hola mundo</p>
+    )
+}
+
+
+2. Una vez definido nuestros tipos nativos de la etiqueta, debemos pasarlos como una propiedad en la función y también al componente como tal
+
+import type { HTMLAttributes } from "react";
+
+
+type nativeTypes = HTMLAttributes<HTMLParagraphElement>
+
+
+const component = ({ ...typesParagraph } : nativeTypes )=>{
+    return ( 
+        <p {...typesParagraph} >Hola mundo</p>
+    )
+}
+
+3. Hacemos destructuring para obtener las propiedad que se le pasen a nuestro componente cuando se use, de esta manera podremos usar los metodos y atributos sobre el componente sin tener que definirlos uno a uno
+
+
+
+//-------------------------------------------------------------------------------
+//TIPOS CORRECTOS PARA ELEMENTOS DEL DOM, HEREDEAR METODOS Y ATRIBUTOS EN UN TIPO
+//-----------------------------------------------------------------------------
 
 
 //-----------------------------
@@ -77,6 +117,3 @@ const [ image, setImage ] = useState<Array<ImageItem>>([
     {id:"1", url: "https://image.com"}
     {id:"1", url: "https://image.com"}
 ]);
-
-
-

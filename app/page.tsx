@@ -4,8 +4,10 @@ import type { MouseEventHandler } from "react";
 //Components
 import { useState } from "react";
 import { LazyImage } from "./components/LazyImage";
+//Lodash
+import { random } from "lodash";
 //Dinamic
-const randomNumber = ():number => Math.floor(Math.random() * 123) + 1;
+const randomNumber = ():number => random(1, 122);
 
 export default function Home() {
     //State
